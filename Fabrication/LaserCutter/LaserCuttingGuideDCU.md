@@ -36,12 +36,17 @@
   * Big exhaust
   * Small fan on wall
   * Laser cutter on machine followed by wall
+
 ## Sourcing Materials
+
 ### Acrylic sheets, 2mm should be fine for anything really
 * goldstarplasticsireland.ie or alperton.ie for sheets cut to 300 X 400 mm
+
 ### Wood sheets
 * woodworkers.ie looking for water resistant wood
+
 ## Design Helpers
+
 ### Using Inkscape and exporting to .dxf
 * http://wiki.imal.org/howto/inkscape-and-lasercutter
   * Set units to mm for inkscape and document
@@ -49,6 +54,7 @@
     * Means the text in the SVG file can still be edited later having not been converted to a path
     * Also means you don't have to ungroup etc.
     * use "-ctl" option for putting different colors on different layers
+
 ### Box Design
 * makercase.com to make up enclosure designs
   * Great starting point for any enclosure
