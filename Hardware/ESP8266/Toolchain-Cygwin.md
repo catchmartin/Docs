@@ -1,6 +1,6 @@
 * install libraries
-  * git autoconf gperf bison flex texinfo libtool libncurses5-dev ncurses wget gawk gcc gpp make libexpat-dev
-  * python python-serial
+  * git autoconf gperf bison flex texinfo libtool libncurses-devel wget gawk gcc-core gcc-g++ mingw-gcc-core mingw-gcc-g++ gccmakedep make automake libexpat-devel python patch libintl-devel
+  * `wget https://bootstrap.pypa.io/ez_setup.py -O - | python; easy_install -U pyserial`
 
 ```
 cd /opt/Espressif
