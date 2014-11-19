@@ -1,5 +1,5 @@
 * install libraries
-  * git autoconf gperf bison flex texinfo libtool libncurses5-dev ncurses wget gawk gcc gpp make
+  * git autoconf gperf bison flex texinfo libtool libncurses5-dev ncurses wget gawk gcc gpp make libexpat-dev
   * python python-serial
 
 ```
