@@ -1,5 +1,5 @@
 * install libraries
-  * git autoconf gperf bison flex texinfo libtool libncurses-devel wget gawk gcc-core gcc-g++ mingw-gcc-core mingw-gcc-g++ gccmakedep make automake libexpat-devel python patch libintl-devel
+  * git autoconf gperf bison flex texinfo libtool libncurses-devel wget gawk gcc-core gcc-g++ mingw-gcc-core mingw-gcc-g++ gccmakedep make automake libexpat-devel python patch libintl-devel openssl-devel gnutls-devel
   * `wget https://bootstrap.pypa.io/ez_setup.py -O - | python; easy_install -U pyserial`
 
 ```
@@ -62,19 +62,33 @@ cd crosstool-NG
   * HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel\obcaseinsensitive
   * to 0 and reboot the machine.
 
-```
-
 `./ct-ng build`
+
 Took about 100 mins
+
+`PATH=$PWD/builds/xtensa-lx106-elf/bin:$PATH`
 
 
 ```
 cd /opt/Espressif
-mkdir ESP8266_SDK
 wget -O esp_iot_sdk_v0.9.2_14_10_24.zip http://bbs.espressif.com/download/file.php?id=9
 unzip esp_iot_sdk_v0.9.2_14_10_24.zip
 mv esp_iot_sdk_v0.9.2 ESP8266_SDK
+cd ESP8266_SDK
+sed -i -e 's/xt-ar/xtensa-lx106-elf-ar/' -e 's/xt-xcc/xtensa-lx106-elf-gcc/' -e 's/xt-objcopy/xtensa-lx106-elf-objcopy/' Makefile
+mv examples/IoT_Demo .
+wget -O lib/libc.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libc.a
+wget -O lib/libhal.a https://github.com/esp8266/esp8266-wiki/raw/master/libs/libhal.a
+wget -O include.tgz https://github.com/esp8266/esp8266-wiki/raw/master/include.tgz
+tar -xvzf include.tgz
 ```
 
-
-
+* `cd ..`
+* Get the esptool-0.0.2.zip file from http://www.esp8266.com/viewtopic.php?f=9&t=142&start=20#p772
+* unzip esptool directory inside archive to /opt/Espressif/ESP8266_SDK/
+```
+cd /opt/Espressif
+git clone https://github.com/themadinventor/esptool esptool-py
+chmod -R +w crosstool-NG/builds/xtensa-lx106-elf
+ln -s $PWD/esptool-py/esptool.py crosstool-NG/builds/xtensa-lx106-elf/bin/
+```
